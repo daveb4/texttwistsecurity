@@ -6,3 +6,11 @@ The first vulnerability I found was with the indexing of the web page. If a mali
 ![Database Download](/text-twist-screenshots/sqlitedownload.png)
 #### or the JSON object:
 ![JSON Object](/text-twist-screenshots/jsonobject.png)
+A possible solution to this vulnerability is to restrict access to these pages by handling the url in the javascript and redirecting the user, an implementation could be something along the lines of:
+if (window.location.href == <insert sensitive data location here>){
+  window.location = <wherever user should be redirected>;
+}
+  
+Another possible solution is to create a .htaccess file and deny access to users trying to reach sensitive data.
+
+### Vulnerability 2: 
