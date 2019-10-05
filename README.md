@@ -12,6 +12,11 @@ if (window.location.href == <insert sensitive data location here>){
   window.location = <wherever user should be redirected>;
 }
 ```
-Another possible solution is to create a .htaccess file and deny access to users trying to reach sensitive data.
-
+Another possible solution is to create a .htaccess file and deny access to users trying to reach sensitive data with something along the lines of:
+```
+<files filetohide.sqlite>
+order allow,deny
+deny from all
+</files>
+```
 ### Vulnerability 2: 
