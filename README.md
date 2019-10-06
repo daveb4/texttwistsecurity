@@ -1,5 +1,6 @@
 # Text Twist Security Analysis By David Boulden
-## Write up analyzing Text Twist web app by Stephen Moss for vulnerabilities.
+## Write up analyzing ![Text Twist web app by Stephen Moss](https://project1-smoss.herokuapp.com/index.html)for vulnerabilities.
+
 ### Vulnerability 1: Indexing
 The first vulnerability I found was with the indexing of the web page. If a malicious user guesses the names of some of the files or uses something like a metasploit webcrawler to search through the directory that holds the webpage, they can get a hold of sensitive data, such as:
 #### The database
@@ -23,3 +24,4 @@ deny from all
 The second vulnerability I found was in the console log POST request of the webpage. The POST request showed the JSON object of each of the possible answers to the rack, so a user could copy the values from the JSON object and enter them in the input box to get maximum points out of each rack.
 ![POST Request](/text-twist-screenshots/postrequest.png)
 Due to the nature of request methods, the user can access the values passed in the requests, so the possible solution I would suggest is using obfuscation. Encoding the values in the front end request and decoding them in the back end with something like an AES encryption would prevent the user from viewing the answers directly without compromising the functionality of the web app.
+### Vulnerability 3: Updating variables in Console
