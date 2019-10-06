@@ -12,9 +12,9 @@ if (window.location.href == <insert sensitive data location here>){
   window.location = <wherever user should be redirected>;
 }
 ```
-Another possible solution is to create a .htaccess file in the root directory and deny access to users trying to reach sensitive data with something along the lines of:
+Another possible solution is to create an htaccess file in the root directory and deny access to users trying to reach sensitive data with something along the lines of:
 ```
-<files filetohide.sqlite
+<files filetohide.sqlite>
 order allow,deny
 deny from all
 </files>
@@ -22,3 +22,4 @@ deny from all
 ### Vulnerability 2: POST Request Data
 The second vulnerability I found was in the console log POST request of the webpage. The POST request showed the JSON object of each of the possible answers to the rack, so a user could copy the values from the JSON object and enter them in the input box to get maximum points out of each rack.
 ![POST Request](/text-twist-screenshots/postrequest.png)
+Due to the nature of request methods, the user can access the values passed in the requests, so the possible solution I would suggest is using obfuscation. Encoding the values in the front end request and decoding them in the back end with something like an AES encryption would prevent the user from viewing the answers directly without compromising the functionality of the web app.
